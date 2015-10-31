@@ -1,0 +1,16 @@
+CPE 315 Fall 2015, California Polytechnic State University San Luis Obispo
+
+Lab 2: MIPS operation, Indexing, Creation of Functions Using the Stack
+
+Authors: Aaron, Matt, and Jordan
+
+The goal of this lab was to create Functions (MIPS assembler subroutines) that 
+assume arguments (parameters) in registers. The MIPS assembler subroutines
+that were created were: 
+
+1. A function ‘bintohex’ to Convert a Binary number to a Hexadecimal
+null-terminated string
+2. A recursive function that computes the Fibonacci value.
+3. A function to implement Indexing and Looping by adding values from a table.
+4. A double fixed-point arithmetic add
+5. A function that uses Shift instructions to select fields.

@@ -1,0 +1,17 @@
+CPE 315 Fall 2015, California Polytechnic State University San Luis Obispo
+
+Lab 1: Floating Point Numbers 
+
+Authors: Aaron, Matt, and Jordan
+
+This lab was designed to to gain an understanding of how floating point
+numbers are represented, and to understand how a floating point operation is
+carried out. In this lab we implemented several functions to achieve this
+goal.
+
+1. Unpack IEEE 754 argument 
+2. Single precision floating point add
+3. Single precision floating point subtract
+4. Double precision floating point multiply
+5. Pack IEEE 754 Result
+

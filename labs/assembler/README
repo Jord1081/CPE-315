@@ -1,0 +1,18 @@
+CPE 315 Fall 2015, California Polytechnic State University San Luis Obispo
+
+Lab 3: Build a MIPS simulator front-end assembler/parser
+
+Authors: Aaron, Matt, and Jordan
+
+The goal of this lab was to build a two-pass MIPS assembler in C that would be
+used in later labs. We were required to properly handle:
+
+1. Comments and operands
+2. Labels
+3. Mnemonics
+   a. The instructions and, andi, or, ori, add, addu, addiu, sll, srl, sra, 
+      sltu, sub, sltiu, beq, bne, lw, sw, lui, j, jr, and jal.
+   b. The ability to define memory-resident constant values using .word and
+      .byte assembler directives
+4. Operands
+5. Two Passes
