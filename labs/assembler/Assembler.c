@@ -5,6 +5,9 @@
 #include "Assembler.h"
 
 #define MAX_FILENAME 255
+#define BUFF_SIZE 1000
+#define OUTFILE_NAME "output.asm"
+#define OP_LEN 7
 
 const char * const InstructionNames[] = {
    "add", "addu", "and", "jr", "or", "sll", "sltu", "sra", "srl", "sub",
@@ -43,26 +46,3 @@ void FillRegister(Types *type, unsigned int val, int pos) {
    
 }
 
-int main() {
-   char *filename;
-   Types *TypesTable = BuildTypesArray();
-
-   printf("Enter a filename:\n");
-   scanf("%*s", MAX_FILENAME, &filename);
-
-   // Read file of instructions
-
-   FILE *fp = fopen(filename, "r");
-   assert(fp != NULL);
-
-
-   fclose(fp);
-
-   // Define symbols
-
-
-   // Generate object code
-
-
-   free(TypesTable);
-}

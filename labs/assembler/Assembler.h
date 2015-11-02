@@ -28,6 +28,10 @@ typedef struct Data {
 enum Instructions { ADD, ANDI, OR, ORI, ADDU, ADDIU, SLL, SRL, SRA, SLTU,
  SUB, SLTIU, BEQ, BNE, LW, SW, LUI, J, JR, JAL };
 
+extern const char * const InstructionNames[];
+extern const int FunctionCodes[];
+extern const int OpCodes[];
+
 Types FindType(char *);
 Types *BuildTypesArray();
 void FillRegister(Types *, unsigned int, int);
