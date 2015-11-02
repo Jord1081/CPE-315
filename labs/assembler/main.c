@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <assert.h>
+#include <string.h>
+#include <stdlib.h>
+#include "Assembler.h"
 
 #define MAX_FILENAME 255
 #define BUFF_SIZE 1000
@@ -12,7 +16,7 @@ int main() {
    unsigned int loc = 0;
 
    printf("Enter a filename:\n");
-   scanf("%*s", MAX_FILENAME, &filename);
+   scanf("%MAX_FILENAMEs", filename);
 
    // Read file of instructions
 
@@ -23,7 +27,7 @@ int main() {
 
    // First pass to find lables
    while (fgets(buf, BUFF_SIZE, fp)) {
-      token = strtok(buf, ':');
+      token = strtok(buf, ":");
       if (token) {
          // Found a label so add it to the table.
       }
