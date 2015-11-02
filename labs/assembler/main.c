@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+#define MAX_FILENAME 255
+#define BUFF_SIZE 1000
+#define OUTFILE_NAME "output.asm"
+#define OP_LEN 7
+
 int main() {
    char *filename, buf[BUFF_SIZE], *token, str[OP_LEN];
    Types *TypesTable = BuildTypesArray();

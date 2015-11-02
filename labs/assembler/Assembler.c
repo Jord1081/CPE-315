@@ -4,10 +4,6 @@
 #include <assert.h>
 #include "Assembler.h"
 
-#define MAX_FILENAME 255
-#define BUFF_SIZE 1000
-#define OUTFILE_NAME "output.asm"
-#define OP_LEN 7
 
 const char * const InstructionNames[] = {
    "add", "addu", "and", "jr", "or", "sll", "sltu", "sra", "srl", "sub",
