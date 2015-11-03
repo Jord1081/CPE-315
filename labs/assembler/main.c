@@ -4,36 +4,28 @@
 #include <stdlib.h>
 #include "Assembler.h"
 
-#define MAX_FILENAME 255
-#define BUFF_SIZE 1000
 #define OUTFILE_NAME "output.asm"
-#define OP_LEN 7
 
-int main() {
-   char *filename, buf[BUFF_SIZE], *token, str[OP_LEN];
-   Types *TypesTable = BuildTypesArray();
-   FILE *fp, *out_file;
-   unsigned int loc = 0;
+int main(int argc, char **argv) {
+   AssembleData data;
+   char *outFile;
 
-   printf("Enter a filename:\n");
-   scanf("%MAX_FILENAMEs", filename);
-
-   // Read file of instructions
-
-   fp = fopen(filename, "r");
-   assert(fp != NULL);
-   out_file = fopen(OUTFILE_NAME, "w");
-   assert(out_file != NULL);
-
-   // First pass to find lables
-   while (fgets(buf, BUFF_SIZE, fp)) {
-      token = strtok(buf, ":");
-      if (token) {
-         // Found a label so add it to the table.
-      }
+   if (argc < 1 || argc > 2) {
+      printf("Useage: %s [filename]\n", argv[0]);
+      return 1;
    }
-   fclose(fp);
+   if (argc == 2)
+      outFile = argv[2];
+   else
+      outFile = OUTFILE_NAME;
 
+   AssemblerInit(&data, argv[1], outFile);
+   BuildTables(&data);
+   CheckTables(data);
+
+   return 0;
+}
+   /*
    // Second pass to parse instructions.
    fp = fopen(filename, "r");
    assert(fp != NULL);
@@ -51,5 +43,4 @@ int main() {
 
    fclose(out_file);
    free(TypesTable);
-   return 0;
-}
+   */

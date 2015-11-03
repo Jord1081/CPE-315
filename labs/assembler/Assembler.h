@@ -1,40 +1,27 @@
 #ifndef ASSEMBLER_H
 #define ASSEMBLER_H
 
-#define BYTE_SHIFT_3 24
-#define REG_BIT_WIDTH 5
-#define TYPES_ARRAY_SIZE 21
-#define R_TYPE_SIZE 10
-#define I_TYPE_SIZE 9
-#define J_TYPE_SIZE 2
+typedef struct Data Data;
+typedef struct Label Label;
+typedef struct Types Types;
 
-typedef struct Types {
-   char *name;
-   unsigned int data;
-} Types;
-
-typedef struct Label {
-   char *name;
-   int address;
-} Label;
-
-typedef struct Data {
-   int address;
-   char *data;
-   int width;
-   int size;
-} Data;
-
-enum Instructions { ADD, ANDI, OR, ORI, ADDU, ADDIU, SLL, SRL, SRA, SLTU,
- SUB, SLTIU, BEQ, BNE, LW, SW, LUI, J, JR, JAL };
+typedef struct AssembleData {
+   Types *typeTable; // List of Types to identify instructions.
+   Label *labelTable; // List of Labels to identify corresponding addresses.
+   int numLabels; // Total number of labels.
+   Data *dataTable; // List of user defined data from .data section.
+   int numData; // Total number of data elements.
+   char *inFile;
+   char *outFile;
+} AssembleData;
 
 extern const char * const InstructionNames[];
 extern const int FunctionCodes[];
 extern const int OpCodes[];
 
-Types FindType(char *);
-Types *BuildTypesArray();
-void FillRegister(Types *, unsigned int, int);
-
+void AssemblerInit(AssembleData *data, char *inFile, char *outFile);
+void BuildTables();
+void Cleanup(AssembleData *data);
+void CheckTables(AssembleData data);
 
 #endif
